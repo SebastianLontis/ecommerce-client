@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "ecommerce-client": "file:.."
+  }
+}
