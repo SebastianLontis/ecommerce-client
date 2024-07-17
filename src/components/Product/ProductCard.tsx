@@ -1,11 +1,7 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-interface ProductCardProps {
-  productId: number;
-  productName: string;
-  description: string;
-}
+import { ProductCardProps } from '../Product/ProductCard.types';
 
 const ProductCard: React.FC<ProductCardProps> = ({ productId, productName, description }) => {
   return (

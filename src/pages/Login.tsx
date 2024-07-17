@@ -13,7 +13,12 @@ const Login = () => {
     try {
       const response = await login(email, password);
       console.log('Login successful:', response);
-      navigate('/');
+
+      if (response.user.is_admin) {
+        navigate('/dashboard');
+      } else {
+        navigate('/homepage');
+      }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to login';
       setError(errorMessage);

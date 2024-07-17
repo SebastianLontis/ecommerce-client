@@ -5,7 +5,8 @@ export const login = async (email: string, password: string) => {
     const response = await axios.post(`${import.meta.env.VITE_APP_API_BASE_URL}login`, { email, password }
   );
     return response.data; 
-  } catch (error) {
+  }
+  catch (error) {
     throw Error('Login failed'); 
   }
 };
