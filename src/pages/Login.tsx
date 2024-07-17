@@ -4,14 +4,14 @@ import { login } from '../services/Authentication';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await login(username, password);
+      const response = await login(email, password);
       console.log('Login successful:', response);
       navigate('/');
     } catch (err) {
@@ -27,7 +27,7 @@ const Login = () => {
           <h2 className="text-center text-3xl font-semibold text-gray-800">Sign in to your account</h2>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700">Email</label>
               <input
                 id="username"
                 name="username"
@@ -36,8 +36,8 @@ const Login = () => {
                 required
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className="mt-4">

@@ -1,19 +1,18 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:8000/api'; 
-
-export const login = async (username: string, password: string) => {
+export const login = async (email: string, password: string) => {
   try {
-    const response = await axios.post(`${API_URL}/login`, { username, password });
+    const response = await axios.post(`${import.meta.env.VITE_APP_API_BASE_URL}login`, { email, password }
+  );
     return response.data; 
   } catch (error) {
     throw Error('Login failed'); 
   }
 };
 
-export const register = async (username: string, password: string, email: string) => {
+export const register = async (name: string, password: string, email: string) => {
   try {
-    const response = await axios.post(`${API_URL}/register`, { username, password, email });
+    const response = await axios.post(`${import.meta.env.VITE_APP_API_BASE_URL}register`, { name, password, email });
     return response.data; 
   } catch (error) {
     throw Error('Registration failed'); 
