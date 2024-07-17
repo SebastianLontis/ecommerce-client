@@ -1,21 +1,22 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../services/Authentication';
+import { register } from '../services/Authentication';
 
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await login(username, password);
-      console.log('Login successful:', response);
-      navigate('/');
+      const response = await register(username, password, email);
+      console.log('Registration successful:', response);
+      navigate('/login');
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Failed to login';
+      const errorMessage = err instanceof Error ? err.message : 'Failed to register';
       setError(errorMessage);
     }
   };
@@ -24,7 +25,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="max-w-md w-full bg-white shadow-lg rounded-lg overflow-hidden">
         <div className="px-6 py-8">
-          <h2 className="text-center text-3xl font-semibold text-gray-800">Sign in to your account</h2>
+          <h2 className="text-center text-3xl font-semibold text-gray-800">Create your account</h2>
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
@@ -41,12 +42,26 @@ const Login = () => {
               />
             </div>
             <div className="mt-4">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="mt-4">
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
               <input
                 id="password"
                 name="password"
                 type="password"
-                autoComplete="current-password"
+                autoComplete="new-password"
                 required
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 placeholder="Password"
@@ -60,7 +75,7 @@ const Login = () => {
                 type="submit"
                 className="w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                Sign in
+                Sign up
               </button>
             </div>
           </form>
@@ -70,4 +85,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

@@ -1,16 +1,23 @@
 import { createBrowserRouter } from 'react-router-dom';
-import LoginForm from '../components/Auth/LoginForm';
-import RegisterPage from '../components/Auth/RegisterForm';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
+import HomePage from '../pages/HomePage';
 
 export default createBrowserRouter([
     {
       path: '/login',
-      element: <LoginForm/>,
+      element: <Login/>,
       children: []
     },
     {
       path: '/register',
-      element: <RegisterPage/>,
+      element: <Register/>,
+      children: []
+    },
+    {
+      path: '/homepage',
+      element: <HomePage/>,
       children: []
     }
+
   ]);
