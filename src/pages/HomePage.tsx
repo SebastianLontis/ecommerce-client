@@ -1,35 +1,22 @@
 import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex">
-        <Sidebar />
-        <main className="flex-1 p-4">
-          <h1 className="text-3xl font-bold mb-4">Welcome to YourStore</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* Featured Products or Promotions */}
-            <div className="bg-white p-4 rounded shadow">
-              <h2 className="text-xl font-bold mb-4">Featured Product</h2>
-              <p className="text-gray-600">Description of featured product.</p>
-            </div>
-            {/* Additional Content */}
-            <div className="bg-white p-4 rounded shadow">
-              <h2 className="text-xl font-bold mb-4">Promotion</h2>
-              <p className="text-gray-600">Details about ongoing promotion.</p>
-            </div>
-            {/* Additional Content */}
-            <div className="bg-white p-4 rounded shadow">
-              <h2 className="text-xl font-bold mb-4">Latest Arrivals</h2>
-              <p className="text-gray-600">Details about new arrivals.</p>
-            </div>
-          </div>
-        </main>
-      </div>
-      <footer className="bg-gray-800 text-white py-4 px-4 text-center">
-        <p>&copy; 2024 YourStore. All rights reserved.</p>
+      <main className="flex-1 p-6 container mx-auto">
+        <h1 className="text-4xl font-bold mb-8 text-gray-900">Welcome to RunnersStore</h1>
+        <section className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+        <img src="https://unsplash.com/photos/3ZUsNJhi_Ik" alt="Running Shoes" className="w-full h-64 object-cover rounded-md mb-4"/>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">About Us</h2>
+          <p className="text-gray-600 mb-4">
+            Welcome to RunnersStore, where we bring you the best selection of [products/services]. Our mission is to provide high-quality items that meet your needs and exceed your expectations. Whether you’re looking for [specific types of products] or just browsing for inspiration, we’re here to help you find what you’re looking for.
+          </p>
+          <button className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors duration-300">Learn More</button>
+        </section>
+      </main>
+      <footer className="bg-gray-900 text-white py-4 px-6 text-center">
+        <p>&copy; 2024 Runners. All rights reserved.</p>
       </footer>
     </div>
   );

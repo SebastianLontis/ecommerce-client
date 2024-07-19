@@ -8,10 +8,10 @@ interface Product {
     name: string;
     price: number;
   }
-  
+
   const Dashboard: React.FC = () => {
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  
+
     return (
       <div className="container mx-auto mt-10">
         <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
@@ -30,5 +30,5 @@ interface Product {
       </div>
     );
   };
-  
+
   export default Dashboard;
